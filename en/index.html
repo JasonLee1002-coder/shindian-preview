@@ -204,6 +204,25 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
 .card p{color:var(--muted)}
 .spot{background:rgba(14,30,54,.82);box-shadow:0 18px 50px rgba(0,0,0,.4)}
 
+.snap{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scrollbar-width:thin}
+.snap .dish{flex:0 0 min(78vw,300px);scroll-snap-align:start}
+.dish img{aspect-ratio:1/1;object-fit:cover;background:#fff}
+.dish .b{padding:14px 16px 18px}.dish h3{font-size:18px}
+
+.lang{position:relative;padding:3px;gap:2px;background:rgba(18,41,74,.55);backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(242,182,109,.25)}
+.lang a{position:relative;border-radius:999px;padding:6px 13px;transition:transform .25s cubic-bezier(.34,1.56,.64,1),color .2s,background .2s}
+.lang a:hover{transform:translateY(-3px) scale(1.12);color:var(--fg)}
+.lang a:active{transform:scale(.92)}
+.lang a[aria-current="page"]{overflow:hidden;box-shadow:0 0 16px rgba(0,198,173,.55);animation:langPulse 2.6s ease-in-out infinite}
+.lang a[aria-current="page"]::after{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:langSweep 3.2s ease-in-out infinite}
+@keyframes langPulse{50%{box-shadow:0 0 24px rgba(0,198,173,.8)}}
+@keyframes langSweep{0%,60%{left:-70%}100%{left:130%}}
+.lang a.fly{animation:langFly .35s ease forwards}
+@keyframes langFly{to{transform:scale(1.5) rotate(-6deg);opacity:0}}
+.lang-burst{position:fixed;pointer-events:none;z-index:99;width:6px;height:6px;border-radius:50%;background:var(--amber);animation:burst .5s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+@media (prefers-reduced-motion:reduce){.lang a[aria-current="page"],.lang a[aria-current="page"]::after{animation:none}}
+
 .lang a{color:var(--muted);padding:6px 12px;font-size:13px;text-decoration:none;white-space:nowrap}
 .lang a[aria-current="page"]{background:var(--accent);color:var(--accent-ink);font-weight:700}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex:none}
@@ -260,6 +279,21 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">Hand-crafted Tea Drinks</h3><span class="p">NT$220 起</span><p class="d" data-i="p3d">High-mountain tea, fruit and sparkling water, mixed by hand. No two cups alike.</p></div></article>
     </div>
   </section>
+
+  <section class="sec" id="menu">
+    <h2 data-i="menu_h">From the menu</h2>
+    <p class="lead" data-i="menu_p">A few dishes you can order from afternoon to night. Menu prices.</p>
+    <div class="snap" id="dishes">
+      <article class="spot dish"><img src="../img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">Smoked Salmon Focaccia</h3><span class="p">NT$260</span></div></article>
+      <article class="spot dish"><img src="../img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">Spicy Chicken Pizza</h3><span class="p">NT$260</span></div></article>
+      <article class="spot dish"><img src="../img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">Lemon Shrimp Salad</h3><span class="p">NT$240</span></div></article>
+      <article class="spot dish"><img src="../img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">Squid Ink Seafood Pasta</h3><span class="p">NT$420</span></div></article>
+      <article class="spot dish"><img src="../img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">Spicy Meat Sauce Shell Pasta</h3><span class="p">NT$360</span></div></article>
+      <article class="spot dish"><img src="../img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">Pan-seared Chicken Brunch Plate</h3><span class="p">NT$360</span></div></article>
+    </div>
+    <p class="fine" data-i="menu_fine">Photos are illustrations. Actual plating may differ.</p>
+  </section>
+
 </main>
 
 <div class="cats-sec has-bg"><div class="bgart" aria-hidden="true"></div>
@@ -341,6 +375,8 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 function blur(el,text){ el.textContent=''; text.split(' ').forEach((w,i)=>{const s=document.createElement('span'); s.textContent=w; s.style.animationDelay=(i*.18)+'s'; el.appendChild(s);}); void el.offsetWidth; el.classList.add('go'); }
 blur($('#enName'),'Shin Dian Wan Yin');
+$$('.lang a').forEach(a=>{ if(a.getAttribute('aria-current')) return; a.addEventListener('click',e=>{ if(reduce||e.metaKey||e.ctrlKey) return; e.preventDefault(); const r=a.getBoundingClientRect(); for(let i=0;i<10;i++){ const s=document.createElement('i'); s.className='lang-burst'; s.style.left=(r.left+r.width/2)+'px'; s.style.top=(r.top+r.height/2)+'px'; const ang=i/10*Math.PI*2, d=26+Math.random()*18; s.style.setProperty('--dx',Math.cos(ang)*d+'px'); s.style.setProperty('--dy',Math.sin(ang)*d+'px'); document.body.appendChild(s); } a.classList.add('fly'); setTimeout(()=>{location.href=a.href},320); }); });
+
 const io=new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('go'); io.unobserve(e.target);} }),{threshold:.35});
 $$('.glare').forEach(g=>io.observe(g)); io.observe($('#catGrid'));
 if(!reduce){ $$('.rv').forEach(e=>e.classList.add('pre')); const io2=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io2.unobserve(e.target);} }),{threshold:.12}); $$('.rv').forEach(e=>io2.observe(e)); }
