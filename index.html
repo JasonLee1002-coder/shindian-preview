@@ -176,6 +176,34 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
 @media (prefers-reduced-motion:no-preference){.rv.pre{opacity:0;transform:translateY(18px)}.rv.in{opacity:1;transform:none;transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}}
 @media (prefers-reduced-motion:reduce){.loop .track,.beams i,.grad{animation:none}.card{opacity:1;transform:none}.blur span{opacity:1;filter:none;transform:none}}
 
+/* ---- 浪漫海邊夜景（OpenAI 生成的氛圍圖，只當背景點綴，不代表店內實景） ---- */
+.hero-bleed{position:relative;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));background:#070f1d}
+.hero-bleed::before{content:"";position:absolute;inset:0;background:url(img/art_harbor.jpg) center 45%/cover no-repeat;opacity:1}
+.hero-bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,15,29,.82) 0%,rgba(7,15,29,.38) 55%,rgba(7,15,29,.08) 100%),linear-gradient(180deg,rgba(7,15,29,.1) 60%,var(--bg) 100%)}
+.hero-bleed>main{position:relative;z-index:2}
+.glare{box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(242,182,109,.18)}
+.has-bg{position:relative;isolation:isolate}
+.has-bg>.bgart{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:center;pointer-events:none}
+.has-bg>.bgart::after{content:"";position:absolute;inset:0}
+.cats-sec .bgart{background-image:url(img/art_bokeh.jpg);opacity:.85}
+.cats-sec .bgart::after{background:linear-gradient(180deg,var(--bg-2),rgba(14,30,54,.55) 40%,var(--bg-2))}
+.night .bgart{background-image:url(img/art_moon.jpg);opacity:.95}
+.night .bgart::after{background:linear-gradient(180deg,#070f1d,rgba(7,15,29,.5) 45%,#070f1d)}
+.visit-art{position:relative;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));height:clamp(180px,32vw,360px);background:url(img/art_pier.jpg) center/cover no-repeat}
+.visit-art::before,.visit-art::after{content:"";position:absolute;left:0;right:0;height:50%;pointer-events:none}
+.visit-art::before{top:0;background:linear-gradient(180deg,var(--bg),transparent)}
+.visit-art::after{bottom:0;background:linear-gradient(0deg,var(--bg),transparent)}
+.visit-art p{position:absolute;inset:0;display:grid;place-items:center;margin:0;font-family:var(--f-display);font-size:clamp(20px,3.4vw,34px);font-weight:700;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.7);text-align:center;padding:0 16px;z-index:2}
+.space-art{position:relative;margin-top:18px;border-radius:var(--r);overflow:hidden;height:clamp(160px,26vw,300px);background:url(img/art_curtain.jpg) center/cover no-repeat}
+.space-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,15,29,.75),rgba(7,15,29,.1))}
+.space-art p{position:absolute;left:clamp(16px,4vw,48px);bottom:clamp(14px,3vw,34px);margin:0;z-index:2;font-family:var(--f-display);font-weight:700;font-size:clamp(18px,2.6vw,28px);color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.7);max-width:20ch}
+/* 卡片改為深色玻璃，不用平塗亮色 */
+.card.c1,.card.c2,.card.c3,.card.c4{background:linear-gradient(160deg,rgba(18,41,74,.78),rgba(8,18,34,.82));color:var(--fg);border:1px solid rgba(242,182,109,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.card.c2{border-color:rgba(0,198,173,.35)}.card.c4{border-color:rgba(0,198,173,.5)}
+.card .n{color:var(--amber);opacity:1}.card.c2 .n,.card.c4 .n{color:var(--accent)}
+.card p{color:var(--muted)}
+.spot{background:rgba(14,30,54,.82);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+
 .lang a{color:var(--muted);padding:6px 12px;font-size:13px;text-decoration:none;white-space:nowrap}
 .lang a[aria-current="page"]{background:var(--accent);color:var(--accent-ink);font-weight:700}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex:none}
@@ -202,7 +230,7 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
   </div>
 </header>
 
-<main id="top" class="wrap">
+<div class="hero-bleed"><main id="top" class="wrap">
   <section class="hero">
     <div class="txt">
       <h1>
@@ -218,7 +246,7 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     </div>
     <div class="photo glare" id="heroPhoto"><img src="img/storefront-v.jpg" width="900" height="1451" alt="欣殿萬飲店門，紅磚牆與月亮招牌" fetchpriority="high"></div>
   </section>
-</main>
+</main></div>
 
 <div class="loop" aria-hidden="true"><div class="track" id="loop"><span>咖啡</span><span>手作茶</span><span>調酒</span><span>燉飯</span><span>義大利麵</span><span>可頌</span><span>佛卡夏</span><span>披薩</span><span>早午餐拼盤</span><span>雲與沫</span><span>氣泡茶</span><span>欣殿高球</span><span>咖啡</span><span>手作茶</span><span>調酒</span><span>燉飯</span><span>義大利麵</span><span>可頌</span><span>佛卡夏</span><span>披薩</span><span>早午餐拼盤</span><span>雲與沫</span><span>氣泡茶</span><span>欣殿高球</span></div></div>
 
@@ -234,7 +262,7 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
   </section>
 </main>
 
-<div class="cats-sec">
+<div class="cats-sec has-bg"><div class="bgart" aria-hidden="true"></div>
   <section class="sec wrap" id="drinks">
     <h2 data-i="cat_h">四種喝法</h2>
     <p class="lead" data-i="cat_p">從一杯黑咖啡到氣泡茶酒，照當下心情挑。</p>
@@ -247,7 +275,7 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
   </section>
 </div>
 
-<div class="night" id="night">
+<div class="night has-bg" id="night"><div class="bgart" aria-hidden="true"></div>
   <canvas id="particles" aria-hidden="true"></canvas>
   <div class="beams" aria-hidden="true"><i></i><i></i><i></i></div>
   <section class="sec wrap">
@@ -279,8 +307,12 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <div class="glare rv" data-g><img src="img/storefront.jpg" width="1800" height="1350" alt="駁二倉庫外牆與招牌" loading="lazy"></div>
     </div>
     <div class="glare bridge rv" data-g><img src="img/bridge.jpg" width="2200" height="822" alt="黃昏的大港橋" loading="lazy"></div>
+    <div class="space-art rv" role="img" aria-label="氛圍示意圖"><p data-i="art2">夜色與海風，慢慢坐一會兒</p></div>
   </section>
 
+  </main>
+<div class="visit-art" role="img" aria-label="氛圍示意圖"><p data-i="art1">港灣入夜，等你來</p></div>
+<main class="wrap">
   <section class="sec" id="faq"><h2 data-i="faq_h">來之前，大家常問</h2><div class="faq"><details><summary>欣殿萬飲在哪裡？</summary><p>在高雄市鹽埕區大義街 2 號 C6-7，駁二藝術特區的老倉庫裡。搭高雄輕軌到「駁二大義站」，步行即達。</p></details><details><summary>營業時間？</summary><p>每天 13:30 到 21:30。</p></details><details><summary>有什麼可以吃喝？</summary><p>白天有燉飯、義大利麵、可頌、佛卡夏、早午餐拼盤和咖啡茶飲，晚上有欣殿高球、萬飲輕酒等手調茶酒。</p></details><details><summary>價位大約多少？</summary><p>茶飲 NT$75 起，咖啡 NT$115 起，輕食與主餐約 NT$130 到 450，調酒 NT$320 起。價格為菜單定價，另收 10% 服務費。</p></details></div></section>
 
   <section class="sec" id="visit">
