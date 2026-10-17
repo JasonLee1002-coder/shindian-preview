@@ -114,7 +114,9 @@ section.sec{padding-block:clamp(56px,9vw,112px)}
 /* 富哥 2026-10-17 11:39：名稱靠右、介紹置中、價格最底靠左小字且不寫 NT$ */
 .spot .b{flex:1;display:flex;flex-direction:column;gap:10px}
 .spot h3{text-align:right}
-.spot .d{text-align:center}
+.spot .d{text-align:center;text-wrap:balance}
+html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
+html[lang="ja"] body{line-break:strict}
 .spot .p{margin-top:auto;padding-top:6px;text-align:left;font-size:13px;font-weight:500;letter-spacing:.02em}
 .fine+.fine{margin-top:6px}
 /* 品牌故事（取自富哥提供的《品牌故事》PDF，2026-10-17） */
@@ -352,6 +354,20 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">Hand-crafted Tea Drinks</h3><p class="d" data-i="p3d">High-mountain tea, fruit and sparkling water, mixed by hand. No two cups alike.</p><span class="p" data-i="p3p">from 220</span></div></article>
     </div>
     <p class="fine" data-i="cur">Prices in NT dollars, before 10% service charge.</p>
+  </section>
+
+  <section class="sec" id="theatre">
+    <h2 data-i="th_h">Theater at the table</h2>
+    <p class="lead" data-i="th_p">When each signature dish arrives, there is a small performance for the eyes, the nose and the ears.</p>
+    <div class="snap" id="stage">
+      <article class="spot dish"><img src="../img/deck_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">Squid Ink Seafood Pasta</h3><p class="d" data-i="t1d">Clams, squid rings and white shrimp, slow-simmered in white wine. A light mist of white wine is sprayed at the table to wake up the deeper sweetness of the sea.</p><span class="p">420</span></div></article>
+      <article class="spot dish"><img src="../img/deck_baguette.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t2">Crispy Shrimp Baguette</h3><p class="d" data-i="t2d">Shrimp mousse and tomato salsa on a crisp baguette, served on a volcanic stone slab. First-pressed basil oil is dropped on at the table.</p><span class="p">280</span></div></article>
+      <article class="spot dish"><img src="../img/deck_beefrisotto.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t3">Oak &amp; Rosemary Beef Risotto</h3><p class="d" data-i="t3d">Seared beef and rosemary butter risotto. The glass dome fills with rosemary smoke, and the aroma spreads the moment it is lifted.</p><span class="p">450</span></div></article>
+      <article class="spot dish"><img src="../img/deck_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t4">White Dawn Cheese Pizza</h3><p class="d" data-i="t4d">Margherita-style pizza with mozzarella, local tomatoes and black pepper. Fresh basil is snipped at the table and finished with extra-virgin olive oil.</p><span class="p">280</span></div></article>
+      <article class="spot dish"><img src="../img/deck_truffle.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="p1">Truffle Morning Plate</h3><p class="d" data-i="t5d">Truffle-scented soft eggs with seasonal vegetables in a sizzling cast-iron pan. Cold-pressed truffle oil is poured at the table, with a crackle and a rush of aroma.</p><span class="p">260</span></div></article>
+    </div>
+    <p class="fine" data-i="cur">Prices in NT dollars, before 10% service charge.</p>
+    <p class="fine" data-i="menu_fine">Photos are illustrations. Actual plating may differ.</p>
   </section>
 
   <section class="sec" id="menu">

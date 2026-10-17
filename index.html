@@ -114,7 +114,9 @@ section.sec{padding-block:clamp(56px,9vw,112px)}
 /* 富哥 2026-10-17 11:39：名稱靠右、介紹置中、價格最底靠左小字且不寫 NT$ */
 .spot .b{flex:1;display:flex;flex-direction:column;gap:10px}
 .spot h3{text-align:right}
-.spot .d{text-align:center}
+.spot .d{text-align:center;text-wrap:balance}
+html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
+html[lang="ja"] body{line-break:strict}
 .spot .p{margin-top:auto;padding-top:6px;text-align:left;font-size:13px;font-weight:500;letter-spacing:.02em}
 .fine+.fine{margin-top:6px}
 /* 品牌故事（取自富哥提供的《品牌故事》PDF，2026-10-17） */
@@ -352,6 +354,20 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <article class="spot rv"><img src="img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">手調茶飲</h3><p class="d" data-i="p3d">高山茶、水果與氣泡水手工調配，每杯都不一樣。</p><span class="p" data-i="p3p">220 起</span></div></article>
     </div>
     <p class="fine" data-i="cur">價格單位為新台幣，未含 10% 服務費。</p>
+  </section>
+
+  <section class="sec" id="theatre">
+    <h2 data-i="th_h">餐桌上的劇場</h2>
+    <p class="lead" data-i="th_p">每道招牌料理上桌的那一刻，都為眼睛、鼻子和耳朵留了一段小演出。</p>
+    <div class="snap" id="stage">
+      <article class="spot dish"><img src="img/deck_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">墨潮海鮮義麵</h3><p class="d" data-i="t1d">蛤蠣、魷魚圈與白蝦，白酒慢煨出鮮甜。桌邊輕噴一道白酒香霧，喚醒海鮮的深層鮮味。</p><span class="p">420</span></div></article>
+      <article class="spot dish"><img src="img/deck_baguette.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t2">酥香蝦語法棍</h3><p class="d" data-i="t2d">鮮蝦慕斯與番茄莎莎疊上酥脆法棍，放在火山岩板上桌，桌邊以滴管淋上初榨九層塔油。</p><span class="p">280</span></div></article>
+      <article class="spot dish"><img src="img/deck_beefrisotto.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t3">橡木迷香牛燉飯</h3><p class="d" data-i="t3d">香煎牛板腱與迷迭香奶油燉飯，玻璃罩內填滿迷迭香煙霧，掀開的瞬間香氣四散。</p><span class="p">450</span></div></article>
+      <article class="spot dish"><img src="img/deck_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t4">白晨起司披薩</h3><p class="d" data-i="t4d">莫札瑞拉、小農番茄與黑胡椒的瑪格麗特風味，桌邊現剪新鮮羅勒，再淋上初榨橄欖油。</p><span class="p">280</span></div></article>
+      <article class="spot dish"><img src="img/deck_truffle.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="p1">松露晨食</h3><p class="d" data-i="t5d">松露香氣包覆滑嫩炒蛋與時令蔬菜，鑄鐵鍋滾燙上桌，桌邊淋上冷壓松露油，滋滋作響。</p><span class="p">260</span></div></article>
+    </div>
+    <p class="fine" data-i="cur">價格單位為新台幣，未含 10% 服務費。</p>
+    <p class="fine" data-i="menu_fine">餐點圖為示意，實際擺盤以現場為準。</p>
   </section>
 
   <section class="sec" id="menu">

@@ -114,7 +114,9 @@ section.sec{padding-block:clamp(56px,9vw,112px)}
 /* 富哥 2026-10-17 11:39：名稱靠右、介紹置中、價格最底靠左小字且不寫 NT$ */
 .spot .b{flex:1;display:flex;flex-direction:column;gap:10px}
 .spot h3{text-align:right}
-.spot .d{text-align:center}
+.spot .d{text-align:center;text-wrap:balance}
+html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
+html[lang="ja"] body{line-break:strict}
 .spot .p{margin-top:auto;padding-top:6px;text-align:left;font-size:13px;font-weight:500;letter-spacing:.02em}
 .fine+.fine{margin-top:6px}
 /* 品牌故事（取自富哥提供的《品牌故事》PDF，2026-10-17） */
@@ -352,6 +354,20 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">手作りティードリンク</h3><p class="d" data-i="p3d">高山茶とフルーツ、炭酸水をその場で調合。同じ一杯はありません。</p><span class="p" data-i="p3p">220〜</span></div></article>
     </div>
     <p class="fine" data-i="cur">価格は台湾ドル（NT$）で、別途10%のサービス料がかかります。</p>
+  </section>
+
+  <section class="sec" id="theatre">
+    <h2 data-i="th_h">テーブルの上の小さな劇場</h2>
+    <p class="lead" data-i="th_p">看板料理が運ばれてくるその瞬間に、目と鼻と耳のための小さな演出を用意しています。</p>
+    <div class="snap" id="stage">
+      <article class="spot dish"><img src="../img/deck_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">イカ墨のシーフードパスタ</h3><p class="d" data-i="t1d">ハマグリ、イカ、小エビを白ワインでじっくり煮込みました。テーブルで白ワインの香りの霧をひと吹きし、魚介の旨みを呼び覚まします。</p><span class="p">420</span></div></article>
+      <article class="spot dish"><img src="../img/deck_baguette.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t2">エビムースのバゲット</h3><p class="d" data-i="t2d">エビのムースとトマトサルサをサクサクのバゲットにのせ、火山岩のプレートで提供。テーブルでスポイトからバジルオイルを垂らします。</p><span class="p">280</span></div></article>
+      <article class="spot dish"><img src="../img/deck_beefrisotto.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t3">ローズマリー牛リゾット</h3><p class="d" data-i="t3d">香ばしく焼いた牛肉とローズマリー香るバターリゾット。ガラスのドームにローズマリーの煙を満たして運び、開けた瞬間に香りが広がります。</p><span class="p">450</span></div></article>
+      <article class="spot dish"><img src="../img/deck_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t4">白晨のチーズピザ</h3><p class="d" data-i="t4d">モッツァレラ、トマト、黒こしょうのマルゲリータ風。テーブルで摘みたてのバジルを切り、エキストラバージンオリーブオイルを回しかけます。</p><span class="p">280</span></div></article>
+      <article class="spot dish"><img src="../img/deck_truffle.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="p1">トリュフモーニングプレート</h3><p class="d" data-i="t5d">トリュフが香る半熟たまごと季節の野菜を、熱々の鉄鍋で。テーブルでコールドプレスのトリュフオイルを注ぐと、ジュウッという音と香りが立ちのぼります。</p><span class="p">260</span></div></article>
+    </div>
+    <p class="fine" data-i="cur">価格は台湾ドル（NT$）で、別途10%のサービス料がかかります。</p>
+    <p class="fine" data-i="menu_fine">料理写真はイメージです。実際の盛り付けとは異なる場合があります。</p>
   </section>
 
   <section class="sec" id="menu">

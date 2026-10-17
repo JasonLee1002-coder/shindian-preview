@@ -114,7 +114,9 @@ section.sec{padding-block:clamp(56px,9vw,112px)}
 /* 富哥 2026-10-17 11:39：名稱靠右、介紹置中、價格最底靠左小字且不寫 NT$ */
 .spot .b{flex:1;display:flex;flex-direction:column;gap:10px}
 .spot h3{text-align:right}
-.spot .d{text-align:center}
+.spot .d{text-align:center;text-wrap:balance}
+html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
+html[lang="ja"] body{line-break:strict}
 .spot .p{margin-top:auto;padding-top:6px;text-align:left;font-size:13px;font-weight:500;letter-spacing:.02em}
 .fine+.fine{margin-top:6px}
 /* 品牌故事（取自富哥提供的《品牌故事》PDF，2026-10-17） */
@@ -352,6 +354,20 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">수제 티 음료</h3><p class="d" data-i="p3d">고산차와 과일, 탄산수를 손으로 블렌딩. 매 잔이 달라요.</p><span class="p" data-i="p3p">220~</span></div></article>
     </div>
     <p class="fine" data-i="cur">가격은 대만 달러(NT$) 기준이며 10% 봉사료 별도입니다.</p>
+  </section>
+
+  <section class="sec" id="theatre">
+    <h2 data-i="th_h">식탁 위의 작은 무대</h2>
+    <p class="lead" data-i="th_p">시그니처 요리가 나오는 순간, 눈과 코와 귀를 위한 작은 연출이 준비되어 있습니다.</p>
+    <div class="snap" id="stage">
+      <article class="spot dish"><img src="../img/deck_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">오징어먹물 해산물 파스타</h3><p class="d" data-i="t1d">조개, 오징어링, 흰다리새우를 화이트 와인에 천천히 졸였습니다. 테이블에서 화이트 와인 향 안개를 살짝 뿌려 해산물의 깊은 감칠맛을 깨웁니다.</p><span class="p">420</span></div></article>
+      <article class="spot dish"><img src="../img/deck_baguette.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t2">바삭 새우 바게트</h3><p class="d" data-i="t2d">새우 무스와 토마토 살사를 바삭한 바게트에 올려 화산암 플레이트에 담아냅니다. 테이블에서 스포이트로 바질 오일을 떨어뜨립니다.</p><span class="p">280</span></div></article>
+      <article class="spot dish"><img src="../img/deck_beefrisotto.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t3">오크와 로즈마리 소고기 리소토</h3><p class="d" data-i="t3d">노릇하게 구운 소고기와 로즈마리 버터 리소토. 유리 돔 안에 로즈마리 연기를 가득 채워 내고, 여는 순간 향이 퍼집니다.</p><span class="p">450</span></div></article>
+      <article class="spot dish"><img src="../img/deck_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="t4">화이트 모닝 치즈 피자</h3><p class="d" data-i="t4d">모차렐라, 토마토, 후추로 맛을 낸 마르게리타 스타일. 테이블에서 신선한 바질을 잘라 올리고 엑스트라 버진 올리브 오일을 둘러 줍니다.</p><span class="p">280</span></div></article>
+      <article class="spot dish"><img src="../img/deck_truffle.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="p1">트러플 모닝 플레이트</h3><p class="d" data-i="t5d">트러플 향이 감싼 부드러운 달걀과 제철 채소를 뜨거운 무쇠 팬에 담아냅니다. 테이블에서 콜드프레스 트러플 오일을 부으면 지글거리는 소리와 향이 피어오릅니다.</p><span class="p">260</span></div></article>
+    </div>
+    <p class="fine" data-i="cur">가격은 대만 달러(NT$) 기준이며 10% 봉사료 별도입니다.</p>
+    <p class="fine" data-i="menu_fine">음식 사진은 이미지이며 실제 플레이팅과 다를 수 있습니다.</p>
   </section>
 
   <section class="sec" id="menu">
