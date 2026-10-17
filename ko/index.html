@@ -111,6 +111,26 @@ section.sec{padding-block:clamp(56px,9vw,112px)}
 .spot h3{font-size:22px}
 .spot .p{font-family:var(--f-display);color:var(--amber);font-weight:600;font-variant-numeric:tabular-nums}
 .spot .d{color:var(--muted);font-size:15px}
+/* 富哥 2026-10-17 11:39：名稱靠右、介紹置中、價格最底靠左小字且不寫 NT$ */
+.spot .b{flex:1;display:flex;flex-direction:column;gap:10px}
+.spot h3{text-align:right}
+.spot .d{text-align:center}
+.spot .p{margin-top:auto;padding-top:6px;text-align:left;font-size:13px;font-weight:500;letter-spacing:.02em}
+.fine+.fine{margin-top:6px}
+/* 品牌故事（取自富哥提供的《品牌故事》PDF，2026-10-17） */
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.story .tx p{color:var(--muted);margin:0 0 16px;max-width:60ch}
+.story blockquote{margin:22px 0 0;font-family:var(--f-display);font-size:clamp(20px,2.4vw,28px);line-height:1.5;color:var(--fg);border-left:2px solid var(--amber);padding-left:16px}
+.story .tx .vision{margin-top:22px;font-size:15px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pillar{background:rgba(14,30,54,.82);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:0 18px 50px rgba(0,0,0,.3)}
+.pillar h3{font-size:20px;margin-bottom:2px}
+.pillar b{display:block;color:var(--amber);font-weight:600;font-size:14px;margin-bottom:8px}
+.pillar p{color:var(--muted);font-size:14px;margin:0}
+.dish .d{font-size:14px}
+.menus li{grid-template-columns:1fr}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+@media (max-width:480px){.pillars{grid-template-columns:1fr}}
 @media (max-width:860px){.picks{grid-template-columns:1fr}}
 
 /* 飲品分類：彈跳卡 */
@@ -256,6 +276,7 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
   <div class="in">
     <a class="brand" translate="no" href="#top">欣殿萬飲<small>SHIN DIAN WAN YIN</small></a>
     <nav aria-label="main">
+      <a href="#story" data-i="nav_story">브랜드 스토리</a>
       <a href="#picks" data-i="nav_picks">인기 메뉴</a>
       <a href="#drinks" data-i="nav_drinks">음료</a>
       <a href="#night" data-i="nav_night">나이트 메뉴</a>
@@ -304,27 +325,47 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     <p class="fine" data-i="vid_note">내레이션은 중국어, 일본어, 한국어 중에서 고를 수 있고 자막도 함께 바뀝니다.</p>
   </section>
 
+  <section class="sec" id="story">
+    <h2 data-i="story_h">항구의 황혼을, 흩어지지 않는 한 편의 시로</h2>
+    <div class="story">
+      <div class="tx rv">
+        <p data-i="story_p1">가오슝은 거대한 조류와 수많은 영혼의 입맞춤을 받은 도시입니다. 보얼예술특구 다이이가의 C6-7 창고에서는 다강교의 실루엣이 조용히 수면을 바라봅니다. 해가 지면 항구 전체가 짙은 주황빛 금색으로 물들고, 欣殿萬飲은 이 황혼과 흐르는 음악 속에서 조용히 태어났습니다.</p>
+        <p data-i="story_p2">낮의 다이이가에서는 낡은 창고의 벽돌 벽 사이로 햇살이 스며들고, 담백하고 정성스러우며 건강을 생각한 유럽식 브런치를 내어드립니다. 밤이 내려 도시의 네온과 항구의 물결빛이 교차할 때, 정갈한 접시와 흔들리는 잔은 사람과 사람을 잇는 가장 진솔한 매개가 됩니다.</p>
+        <blockquote data-i="story_q">우리는 단지 레스토랑 바를 운영하는 것이 아닙니다. 시간과 마음을 이어 가는 일을 하고 있습니다.</blockquote>
+        <p class="vision" data-i="story_v">비전: 가오슝 항만 생활권에서 가장 영혼이 깃든 스마트 다이닝 브랜드가 되는 것.</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar rv"><h3 data-i="s1h">계승</h3><b data-i="s1t">장인의 마음, 세월이 쌓은 깊이</b><p data-i="s1p">식재료의 품질에 대한 집요할 만큼의 고집과, 서비스의 디테일에 대한 변치 않는 초심.</p></article>
+        <article class="pillar rv"><h3 data-i="s2h">혁신</h3><b data-i="s2t">스마트하고 현대적으로</b><p data-i="s2p">기술은 차가운 것이 아니라 보이지 않는 배려입니다.</p></article>
+        <article class="pillar rv"><h3 data-i="s3h">연결</h3><b data-i="s3t">영혼이 모이는 곳, 대항의 교차로</b><p data-i="s3p">먼 곳에서 온 여행자와 지역 주민, 그리고 이 도시만의 항구 문화를 이어 줍니다.</p></article>
+        <article class="pillar rv"><h3 data-i="s4h">경험</h3><b data-i="s4t">식사를 넘어 삶의 한 장면으로</b><p data-i="s4p">정성껏 설계한 유럽식 요리, 낮과 밤에 따라 달라지는 공간, 마음을 울리는 음악, 따뜻한 교감.</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="picks">
     <h2 data-i="picks_h">가장 많이 찾는 메뉴</h2>
     <p class="lead" data-i="picks_p">브런치 플레이트와 수제 티 음료. 낮 시간에 특히 좋아요.</p>
     <div class="picks">
-      <article class="spot rv"><img src="../img/truffle.jpg" width="1000" height="1000" alt="松露晨食" loading="lazy"><div class="b"><h3 data-i="p1">트러플 모닝 플레이트</h3><span class="p">NT$260</span><p class="d" data-i="p1d">트러플 향을 입힌 부드러운 스크램블 에그와 구운 제철 채소, 바게트.</p></div></article>
-      <article class="spot rv"><img src="../img/beef.jpg" width="1000" height="1000" alt="晨宴牛板腱拼盤" loading="lazy"><div class="b"><h3 data-i="p2">소고기 브런치 플레이트</h3><span class="p">NT$360</span><p class="d" data-i="p2d">수비드 소고기, 계란, 빵, 해시브라운, 샐러드.</p></div></article>
-      <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">수제 티 음료</h3><span class="p">NT$220 起</span><p class="d" data-i="p3d">고산차와 과일, 탄산수를 손으로 블렌딩. 매 잔이 달라요.</p></div></article>
+      <article class="spot rv"><img src="../img/truffle.jpg" width="1000" height="1000" alt="松露晨食" loading="lazy"><div class="b"><h3 data-i="p1">트러플 모닝 플레이트</h3><p class="d" data-i="p1d">트러플 향을 입힌 부드러운 스크램블 에그와 구운 제철 채소, 바게트.</p><span class="p">260</span></div></article>
+      <article class="spot rv"><img src="../img/beef.jpg" width="1000" height="1000" alt="晨宴牛板腱拼盤" loading="lazy"><div class="b"><h3 data-i="p2">소고기 브런치 플레이트</h3><p class="d" data-i="p2d">수비드 소고기, 계란, 빵, 해시브라운, 샐러드.</p><span class="p">360</span></div></article>
+      <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">수제 티 음료</h3><p class="d" data-i="p3d">고산차와 과일, 탄산수를 손으로 블렌딩. 매 잔이 달라요.</p><span class="p" data-i="p3p">220~</span></div></article>
     </div>
+    <p class="fine" data-i="cur">가격은 대만 달러(NT$) 기준이며 10% 봉사료 별도입니다.</p>
   </section>
 
   <section class="sec" id="menu">
     <h2 data-i="menu_h">메뉴 하이라이트</h2>
     <p class="lead" data-i="menu_p">오후부터 밤까지 즐길 수 있는 메뉴입니다. 메뉴 정가 기준.</p>
     <div class="snap" id="dishes">
-      <article class="spot dish"><img src="../img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">훈제 연어 포카치아</h3><span class="p">NT$260</span></div></article>
-      <article class="spot dish"><img src="../img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">매콤 치킨 피자</h3><span class="p">NT$260</span></div></article>
-      <article class="spot dish"><img src="../img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">레몬 새우 샐러드</h3><span class="p">NT$240</span></div></article>
-      <article class="spot dish"><img src="../img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">오징어먹물 해산물 파스타</h3><span class="p">NT$420</span></div></article>
-      <article class="spot dish"><img src="../img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">매운 미트소스 조개 파스타</h3><span class="p">NT$360</span></div></article>
-      <article class="spot dish"><img src="../img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">구운 치킨 브런치 플레이트</h3><span class="p">NT$360</span></div></article>
+      <article class="spot dish"><img src="../img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">훈제 연어 포카치아</h3><p class="d" data-i="d1d">훈제 연어와 신선한 채소. 겹겹의 풍미가 산뜻한, 오래도록 사랑받는 영국식 가벼운 한 끼입니다.</p><span class="p">260</span></div></article>
+      <article class="spot dish"><img src="../img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">매콤 치킨 피자</h3><p class="d" data-i="d2d">대만식 절임 고추의 은은한 매콤함이 닭다리살과 어우러집니다. 풍미는 깊되 맵지 않습니다.</p><span class="p">260</span></div></article>
+      <article class="spot dish"><img src="../img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">레몬 새우 샐러드</h3><p class="d" data-i="d3d">상큼한 레몬 향이 새우의 단맛을 살려 주는, 입맛을 돋우는 샐러드입니다.</p><span class="p">240</span></div></article>
+      <article class="spot dish"><img src="../img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">오징어먹물 해산물 파스타</h3><p class="d" data-i="d4d">조류처럼 검은 면에 바다의 감칠맛. 화이트 와인에 천천히 졸인 해산물의 진한 풍미입니다.</p><span class="p">420</span></div></article>
+      <article class="spot dish"><img src="../img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">매운 미트소스 조개 파스타</h3><p class="d" data-i="d5d">진한 붉은 소스와 만찬의 분위기를 담았습니다. 큰 조개 모양 파스타에 매콤한 미트 소스를 곁들였습니다.</p><span class="p">360</span></div></article>
+      <article class="spot dish"><img src="../img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">구운 치킨 브런치 플레이트</h3><p class="d" data-i="d6d">노릇하게 구운 닭다리살과 푸짐한 곁들임으로 하루를 든든하게 채웁니다.</p><span class="p">360</span></div></article>
     </div>
+    <p class="fine" data-i="cur">가격은 대만 달러(NT$) 기준이며 10% 봉사료 별도입니다.</p>
     <p class="fine" data-i="menu_fine">음식 사진은 이미지이며 실제 플레이팅과 다를 수 있습니다.</p>
   </section>
 
@@ -335,10 +376,10 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     <h2 data-i="cat_h">네 가지 마시는 법</h2>
     <p class="lead" data-i="cat_p">블랙커피부터 탄산 티 칵테일까지, 기분 따라 고르세요.</p>
     <div class="cat-grid" id="catGrid">
-      <div class="card c1" style="--i:0"><div><span class="n" translate="no" data-i="c1n">Coffee</span><h3 data-i="c1h">커피</h3></div><p data-i="c1p">롱블랙, 라떼, 슬로우 콜드브루. NT$115부터.</p></div>
-      <div class="card c2" style="--i:1"><div><span class="n" translate="no" data-i="c2n">Tea</span><h3 data-i="c2h">차</h3></div><p data-i="c2p">실론, 자스민, 고산 우롱과 블렌딩 특선. NT$75부터.</p></div>
-      <div class="card c3" style="--i:2"><div><span class="n" translate="no" data-i="c3n">Cloud &amp; Fizz</span><h3 data-i="c3h">구름과 거품</h3></div><p data-i="c3p">거품과 탄산수로 만든 무알코올 음료. NT$220부터.</p></div>
-      <div class="card c4" style="--i:3"><div><span class="n" translate="no" data-i="c4n">Spirits</span><h3 data-i="c4h">하이볼 &amp; 라이트 칵테일</h3></div><p data-i="c4p">신뎬 하이볼, 완인 라이트 칵테일. NT$320부터.</p></div>
+      <div class="card c1" style="--i:0"><div><span class="n" translate="no" data-i="c1n">Coffee</span><h3 data-i="c1h">커피</h3></div><p data-i="c1p">롱블랙, 라떼, 슬로우 콜드브루.</p></div>
+      <div class="card c2" style="--i:1"><div><span class="n" translate="no" data-i="c2n">Tea</span><h3 data-i="c2h">차</h3></div><p data-i="c2p">실론, 자스민, 고산 우롱과 블렌딩 특선.</p></div>
+      <div class="card c3" style="--i:2"><div><span class="n" translate="no" data-i="c3n">Cloud &amp; Fizz</span><h3 data-i="c3h">구름과 거품</h3></div><p data-i="c3p">거품과 탄산수로 만든 무알코올 음료.</p></div>
+      <div class="card c4" style="--i:3"><div><span class="n" translate="no" data-i="c4n">Spirits</span><h3 data-i="c4h">하이볼 &amp; 라이트 칵테일</h3></div><p data-i="c4p">신뎬 하이볼, 완인 라이트 칵테일.</p></div>
     </div>
   </section>
 </div>
@@ -353,15 +394,15 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <div>
         <h3 data-i="m1h">신뎬 하이볼</h3>
         <p class="note" data-i="m1n">차와 과일로 만든 하이볼. 베이스 술을 고르세요.</p>
-        <ul id="m1"><li><b>블루하버 럼</b><span class="pr">NT$360</span><small>진피, 매실, 자몽, 리치</small></li><li><b>과수원 브랜디</b><span class="pr">NT$380</span><small>사계춘차, 사과, 레몬 생강</small></li><li><b>허브 보드카</b><span class="pr">NT$360</span><small>민들레, 바질, 민트, 감초, 오이</small></li><li><b>와일드 데킬라</b><span class="pr">NT$400</span><small>오디, 파촐리, 로즈마리, 후추</small></li><li><b>복숭아 진</b><span class="pr">NT$340</span><small>벚꽃, 카카오 차, 홍우롱, 크랜베리</small></li></ul>
+        <ul id="m1"><li><b>블루하버 럼</b><small>진피, 매실, 자몽, 리치</small></li><li><b>과수원 브랜디</b><small>사계춘차, 사과, 레몬 생강</small></li><li><b>허브 보드카</b><small>민들레, 바질, 민트, 감초, 오이</small></li><li><b>와일드 데킬라</b><small>오디, 파촐리, 로즈마리, 후추</small></li><li><b>복숭아 진</b><small>벚꽃, 카카오 차, 홍우롱, 크랜베리</small></li></ul>
       </div>
       <div>
         <h3 data-i="m2h">완인 라이트 칵테일</h3>
         <p class="note" data-i="m2n">도수는 낮고 차 향이 중심. 천천히 즐기기 좋아요.</p>
-        <ul id="m2"><li><b>리치 청차</b><span class="pr">NT$320</span><small>고산 청차, 리치, 계피, 장미</small></li><li><b>동방미인 커피베리</b><span class="pr">NT$340</span><small>동방미인, 커피, 마카다미아, 딸기 홍차</small></li><li><b>자스민 속삭임</b><span class="pr">NT$320</span><small>자스민차, 구아바, 야생 생강꽃</small></li><li><b>금훤 계화</b><span class="pr">NT$320</span><small>금훤차, 크랜베리, 토닉, 계화</small></li><li><b>홍옥 수박</b><span class="pr">NT$360</span><small>홍옥 홍차, 수박, 초코우유</small></li></ul>
+        <ul id="m2"><li><b>리치 청차</b><small>고산 청차, 리치, 계피, 장미</small></li><li><b>동방미인 커피베리</b><small>동방미인, 커피, 마카다미아, 딸기 홍차</small></li><li><b>자스민 속삭임</b><small>자스민차, 구아바, 야생 생강꽃</small></li><li><b>금훤 계화</b><small>금훤차, 크랜베리, 토닉, 계화</small></li><li><b>홍옥 수박</b><small>홍옥 홍차, 수박, 초코우유</small></li></ul>
       </div>
     </div>
-    <p class="fine" data-i="fine">메뉴 정가이며 10% 봉사료 별도입니다. 재고에 따라 다를 수 있습니다.</p>
+    <p class="fine" data-i="fine">재고에 따라 다를 수 있습니다.</p>
   </section>
 </div>
 

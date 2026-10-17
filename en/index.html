@@ -111,6 +111,26 @@ section.sec{padding-block:clamp(56px,9vw,112px)}
 .spot h3{font-size:22px}
 .spot .p{font-family:var(--f-display);color:var(--amber);font-weight:600;font-variant-numeric:tabular-nums}
 .spot .d{color:var(--muted);font-size:15px}
+/* 富哥 2026-10-17 11:39：名稱靠右、介紹置中、價格最底靠左小字且不寫 NT$ */
+.spot .b{flex:1;display:flex;flex-direction:column;gap:10px}
+.spot h3{text-align:right}
+.spot .d{text-align:center}
+.spot .p{margin-top:auto;padding-top:6px;text-align:left;font-size:13px;font-weight:500;letter-spacing:.02em}
+.fine+.fine{margin-top:6px}
+/* 品牌故事（取自富哥提供的《品牌故事》PDF，2026-10-17） */
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.story .tx p{color:var(--muted);margin:0 0 16px;max-width:60ch}
+.story blockquote{margin:22px 0 0;font-family:var(--f-display);font-size:clamp(20px,2.4vw,28px);line-height:1.5;color:var(--fg);border-left:2px solid var(--amber);padding-left:16px}
+.story .tx .vision{margin-top:22px;font-size:15px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pillar{background:rgba(14,30,54,.82);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:0 18px 50px rgba(0,0,0,.3)}
+.pillar h3{font-size:20px;margin-bottom:2px}
+.pillar b{display:block;color:var(--amber);font-weight:600;font-size:14px;margin-bottom:8px}
+.pillar p{color:var(--muted);font-size:14px;margin:0}
+.dish .d{font-size:14px}
+.menus li{grid-template-columns:1fr}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+@media (max-width:480px){.pillars{grid-template-columns:1fr}}
 @media (max-width:860px){.picks{grid-template-columns:1fr}}
 
 /* 飲品分類：彈跳卡 */
@@ -256,6 +276,7 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
   <div class="in">
     <a class="brand" translate="no" href="#top">欣殿萬飲<small>SHIN DIAN WAN YIN</small></a>
     <nav aria-label="main">
+      <a href="#story" data-i="nav_story">Our story</a>
       <a href="#picks" data-i="nav_picks">Favorites</a>
       <a href="#drinks" data-i="nav_drinks">Drinks</a>
       <a href="#night" data-i="nav_night">Night menu</a>
@@ -304,27 +325,47 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     <p class="fine" data-i="vid_note">Choose Chinese, Japanese or Korean narration. Subtitles follow.</p>
   </section>
 
+  <section class="sec" id="story">
+    <h2 data-i="story_h">When the harbor's dusk is written as a poem that never fades</h2>
+    <div class="story">
+      <div class="tx rv">
+        <p data-i="story_p1">Kaohsiung is a city kissed by great tides and countless souls. In warehouse C6-7 at the Pier-2 Dayi district, the silhouette of the Dagang Bridge gazes quietly over the water. At sunset the whole harbor turns a deep orange-gold, and Shin Dian Wan Yin was quietly born in that dusk and flowing music.</p>
+        <p data-i="story_p2">By day, sunlight comes through the old brick walls and we serve pure, refined, health-minded European brunch. When night falls and the city's neon meets the light on the water, a beautifully plated dish and a swaying glass become the most sincere medium between people.</p>
+        <blockquote data-i="story_q">We do not just run a bistro. We are carrying on something about time and feeling.</blockquote>
+        <p class="vision" data-i="story_v">Our vision: to become the most soulful smart-dining brand in Kaohsiung's harbor district.</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar rv"><h3 data-i="s1h">Heritage</h3><b data-i="s1t">Craft at the root, settled by years</b><p data-i="s1p">An almost stubborn standard for ingredients, and an unchanged care for every detail of service.</p></article>
+        <article class="pillar rv"><h3 data-i="s2h">Innovation</h3><b data-i="s2t">Smart, modern, refined</b><p data-i="s2p">Technology here is not cold. It is invisible thoughtfulness.</p></article>
+        <article class="pillar rv"><h3 data-i="s3h">Connection</h3><b data-i="s3t">Where souls gather and the harbor meets</b><p data-i="s3p">We connect travelers from afar, local residents and the city's own harbor culture.</p></article>
+        <article class="pillar rv"><h3 data-i="s4h">Experience</h3><b data-i="s4t">More than a meal, a scene from life</b><p data-i="s4p">Carefully designed European dishes, a space that changes with day and night, moving music and warm interaction.</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="picks">
     <h2 data-i="picks_h">What people order most</h2>
     <p class="lead" data-i="picks_p">Brunch plates and hand-made tea drinks, best in the afternoon.</p>
     <div class="picks">
-      <article class="spot rv"><img src="../img/truffle.jpg" width="1000" height="1000" alt="松露晨食" loading="lazy"><div class="b"><h3 data-i="p1">Truffle Morning Plate</h3><span class="p">NT$260</span><p class="d" data-i="p1d">Truffle-scented soft scrambled eggs with roasted seasonal vegetables and baguette.</p></div></article>
-      <article class="spot rv"><img src="../img/beef.jpg" width="1000" height="1000" alt="晨宴牛板腱拼盤" loading="lazy"><div class="b"><h3 data-i="p2">Sous-vide Beef Brunch Plate</h3><span class="p">NT$360</span><p class="d" data-i="p2d">Sous-vide beef, eggs, bread, hash brown and a side salad.</p></div></article>
-      <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">Hand-crafted Tea Drinks</h3><span class="p">NT$220 起</span><p class="d" data-i="p3d">High-mountain tea, fruit and sparkling water, mixed by hand. No two cups alike.</p></div></article>
+      <article class="spot rv"><img src="../img/truffle.jpg" width="1000" height="1000" alt="松露晨食" loading="lazy"><div class="b"><h3 data-i="p1">Truffle Morning Plate</h3><p class="d" data-i="p1d">Truffle-scented soft scrambled eggs with roasted seasonal vegetables and baguette.</p><span class="p">260</span></div></article>
+      <article class="spot rv"><img src="../img/beef.jpg" width="1000" height="1000" alt="晨宴牛板腱拼盤" loading="lazy"><div class="b"><h3 data-i="p2">Sous-vide Beef Brunch Plate</h3><p class="d" data-i="p2d">Sous-vide beef, eggs, bread, hash brown and a side salad.</p><span class="p">360</span></div></article>
+      <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">Hand-crafted Tea Drinks</h3><p class="d" data-i="p3d">High-mountain tea, fruit and sparkling water, mixed by hand. No two cups alike.</p><span class="p" data-i="p3p">from 220</span></div></article>
     </div>
+    <p class="fine" data-i="cur">Prices in NT dollars, before 10% service charge.</p>
   </section>
 
   <section class="sec" id="menu">
     <h2 data-i="menu_h">From the menu</h2>
     <p class="lead" data-i="menu_p">A few dishes you can order from afternoon to night. Menu prices.</p>
     <div class="snap" id="dishes">
-      <article class="spot dish"><img src="../img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">Smoked Salmon Focaccia</h3><span class="p">NT$260</span></div></article>
-      <article class="spot dish"><img src="../img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">Spicy Chicken Pizza</h3><span class="p">NT$260</span></div></article>
-      <article class="spot dish"><img src="../img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">Lemon Shrimp Salad</h3><span class="p">NT$240</span></div></article>
-      <article class="spot dish"><img src="../img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">Squid Ink Seafood Pasta</h3><span class="p">NT$420</span></div></article>
-      <article class="spot dish"><img src="../img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">Spicy Meat Sauce Shell Pasta</h3><span class="p">NT$360</span></div></article>
-      <article class="spot dish"><img src="../img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">Pan-seared Chicken Brunch Plate</h3><span class="p">NT$360</span></div></article>
+      <article class="spot dish"><img src="../img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">Smoked Salmon Focaccia</h3><p class="d" data-i="d1d">Smoked salmon with fresh vegetables. Layered, refreshing, a long-loved English-style light bite.</p><span class="p">260</span></div></article>
+      <article class="spot dish"><img src="../img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">Spicy Chicken Pizza</h3><p class="d" data-i="d2d">The mellow heat of Taiwanese pickled chili meets chicken thigh. Layered, never harsh.</p><span class="p">260</span></div></article>
+      <article class="spot dish"><img src="../img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">Lemon Shrimp Salad</h3><p class="d" data-i="d3d">Fresh lemon brings out the sweetness of the shrimp in a bright, appetizing salad.</p><span class="p">240</span></div></article>
+      <article class="spot dish"><img src="../img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">Squid Ink Seafood Pasta</h3><p class="d" data-i="d4d">Black pasta like the tide, with the freshness of the sea. Seafood slow-simmered in white wine, rich and fragrant.</p><span class="p">420</span></div></article>
+      <article class="spot dish"><img src="../img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">Spicy Meat Sauce Shell Pasta</h3><p class="d" data-i="d5d">Red for a bold sauce and an evening feast. Spicy meat sauce in large shell pasta.</p><span class="p">360</span></div></article>
+      <article class="spot dish"><img src="../img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">Pan-seared Chicken Brunch Plate</h3><p class="d" data-i="d6d">Golden pan-seared chicken thigh with generous sides, everything a good day needs.</p><span class="p">360</span></div></article>
     </div>
+    <p class="fine" data-i="cur">Prices in NT dollars, before 10% service charge.</p>
     <p class="fine" data-i="menu_fine">Photos are illustrations. Actual plating may differ.</p>
   </section>
 
@@ -335,10 +376,10 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     <h2 data-i="cat_h">Four ways to drink</h2>
     <p class="lead" data-i="cat_p">From black coffee to sparkling tea cocktails. Pick by mood.</p>
     <div class="cat-grid" id="catGrid">
-      <div class="card c1" style="--i:0"><div><span class="n" translate="no" data-i="c1n">Coffee</span><h3 data-i="c1h">Coffee</h3></div><p data-i="c1p">Long black, latte, slow-brew cold brew. From NT$115.</p></div>
-      <div class="card c2" style="--i:1"><div><span class="n" translate="no" data-i="c2n">Tea</span><h3 data-i="c2h">Tea</h3></div><p data-i="c2p">Ceylon, jasmine, high-mountain oolong and blended specials. From NT$75.</p></div>
-      <div class="card c3" style="--i:2"><div><span class="n" translate="no" data-i="c3n">Cloud &amp; Fizz</span><h3 data-i="c3h">Cloud &amp; Fizz</h3></div><p data-i="c3p">Alcohol-free blends with foam and sparkling water. From NT$220.</p></div>
-      <div class="card c4" style="--i:3"><div><span class="n" translate="no" data-i="c4n">Spirits</span><h3 data-i="c4h">Highballs &amp; light cocktails</h3></div><p data-i="c4p">Shin Dian highballs and Wan Yin light cocktails. From NT$320.</p></div>
+      <div class="card c1" style="--i:0"><div><span class="n" translate="no" data-i="c1n">Coffee</span><h3 data-i="c1h">Coffee</h3></div><p data-i="c1p">Long black, latte, slow-brew cold brew.</p></div>
+      <div class="card c2" style="--i:1"><div><span class="n" translate="no" data-i="c2n">Tea</span><h3 data-i="c2h">Tea</h3></div><p data-i="c2p">Ceylon, jasmine, high-mountain oolong and blended specials.</p></div>
+      <div class="card c3" style="--i:2"><div><span class="n" translate="no" data-i="c3n">Cloud &amp; Fizz</span><h3 data-i="c3h">Cloud &amp; Fizz</h3></div><p data-i="c3p">Alcohol-free blends with foam and sparkling water.</p></div>
+      <div class="card c4" style="--i:3"><div><span class="n" translate="no" data-i="c4n">Spirits</span><h3 data-i="c4h">Highballs &amp; light cocktails</h3></div><p data-i="c4p">Shin Dian highballs and Wan Yin light cocktails.</p></div>
     </div>
   </section>
 </div>
@@ -353,15 +394,15 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <div>
         <h3 data-i="m1h">Shin Dian Highballs</h3>
         <p class="note" data-i="m1n">Tea and fruit highballs. Choose your spirit.</p>
-        <ul id="m1"><li><b>Blue Harbor Rum</b><span class="pr">NT$360</span><small>Dried tangerine peel, plum, grapefruit, lychee</small></li><li><b>Orchard Brandy</b><span class="pr">NT$380</span><small>Four Seasons tea, apple, lemon ginger</small></li><li><b>Herbal Vodka</b><span class="pr">NT$360</span><small>Dandelion, basil, mint, licorice, cucumber</small></li><li><b>Wild Tequila</b><span class="pr">NT$400</span><small>Mulberry, patchouli, rosemary, pepper</small></li><li><b>Peach Blossom Gin</b><span class="pr">NT$340</span><small>Sakura, cacao tea, red oolong, cranberry</small></li></ul>
+        <ul id="m1"><li><b>Blue Harbor Rum</b><small>Dried tangerine peel, plum, grapefruit, lychee</small></li><li><b>Orchard Brandy</b><small>Four Seasons tea, apple, lemon ginger</small></li><li><b>Herbal Vodka</b><small>Dandelion, basil, mint, licorice, cucumber</small></li><li><b>Wild Tequila</b><small>Mulberry, patchouli, rosemary, pepper</small></li><li><b>Peach Blossom Gin</b><small>Sakura, cacao tea, red oolong, cranberry</small></li></ul>
       </div>
       <div>
         <h3 data-i="m2h">Wan Yin Light Cocktails</h3>
         <p class="note" data-i="m2n">Lower alcohol, tea-forward, made for slow sipping.</p>
-        <ul id="m2"><li><b>Lychee Green Tea</b><span class="pr">NT$320</span><small>High-mountain tea, lychee, cinnamon, rose</small></li><li><b>Oriental Beauty Coffee Berry</b><span class="pr">NT$340</span><small>Oriental Beauty tea, coffee, macadamia, strawberry tea</small></li><li><b>Jasmine Whisper</b><span class="pr">NT$320</span><small>Jasmine tea, guava, wild ginger flower</small></li><li><b>Osmanthus Jin Xuan</b><span class="pr">NT$320</span><small>Jin Xuan tea, cranberry, tonic, osmanthus</small></li><li><b>Red Jade Watermelon</b><span class="pr">NT$360</span><small>Ruby red tea, watermelon, chocolate milk</small></li></ul>
+        <ul id="m2"><li><b>Lychee Green Tea</b><small>High-mountain tea, lychee, cinnamon, rose</small></li><li><b>Oriental Beauty Coffee Berry</b><small>Oriental Beauty tea, coffee, macadamia, strawberry tea</small></li><li><b>Jasmine Whisper</b><small>Jasmine tea, guava, wild ginger flower</small></li><li><b>Osmanthus Jin Xuan</b><small>Jin Xuan tea, cranberry, tonic, osmanthus</small></li><li><b>Red Jade Watermelon</b><small>Ruby red tea, watermelon, chocolate milk</small></li></ul>
       </div>
     </div>
-    <p class="fine" data-i="fine">Menu prices, before 10% service charge. Availability may vary.</p>
+    <p class="fine" data-i="fine">Availability may vary.</p>
   </section>
 </div>
 

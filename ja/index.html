@@ -111,6 +111,26 @@ section.sec{padding-block:clamp(56px,9vw,112px)}
 .spot h3{font-size:22px}
 .spot .p{font-family:var(--f-display);color:var(--amber);font-weight:600;font-variant-numeric:tabular-nums}
 .spot .d{color:var(--muted);font-size:15px}
+/* 富哥 2026-10-17 11:39：名稱靠右、介紹置中、價格最底靠左小字且不寫 NT$ */
+.spot .b{flex:1;display:flex;flex-direction:column;gap:10px}
+.spot h3{text-align:right}
+.spot .d{text-align:center}
+.spot .p{margin-top:auto;padding-top:6px;text-align:left;font-size:13px;font-weight:500;letter-spacing:.02em}
+.fine+.fine{margin-top:6px}
+/* 品牌故事（取自富哥提供的《品牌故事》PDF，2026-10-17） */
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.story .tx p{color:var(--muted);margin:0 0 16px;max-width:60ch}
+.story blockquote{margin:22px 0 0;font-family:var(--f-display);font-size:clamp(20px,2.4vw,28px);line-height:1.5;color:var(--fg);border-left:2px solid var(--amber);padding-left:16px}
+.story .tx .vision{margin-top:22px;font-size:15px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pillar{background:rgba(14,30,54,.82);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:0 18px 50px rgba(0,0,0,.3)}
+.pillar h3{font-size:20px;margin-bottom:2px}
+.pillar b{display:block;color:var(--amber);font-weight:600;font-size:14px;margin-bottom:8px}
+.pillar p{color:var(--muted);font-size:14px;margin:0}
+.dish .d{font-size:14px}
+.menus li{grid-template-columns:1fr}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+@media (max-width:480px){.pillars{grid-template-columns:1fr}}
 @media (max-width:860px){.picks{grid-template-columns:1fr}}
 
 /* 飲品分類：彈跳卡 */
@@ -256,6 +276,7 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
   <div class="in">
     <a class="brand" translate="no" href="#top">欣殿萬飲<small>SHIN DIAN WAN YIN</small></a>
     <nav aria-label="main">
+      <a href="#story" data-i="nav_story">ブランドストーリー</a>
       <a href="#picks" data-i="nav_picks">人気メニュー</a>
       <a href="#drinks" data-i="nav_drinks">ドリンク</a>
       <a href="#night" data-i="nav_night">ナイトメニュー</a>
@@ -304,27 +325,47 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     <p class="fine" data-i="vid_note">ナレーションは中国語・日本語・韓国語から選べます。字幕も切り替わります。</p>
   </section>
 
+  <section class="sec" id="story">
+    <h2 data-i="story_h">港の黄昏を、消えない一篇の詩に</h2>
+    <div class="story">
+      <div class="tx rv">
+        <p data-i="story_p1">高雄は、大きな潮の流れと無数の魂に口づけされてきた街です。駁二大義特区のC6-7倉庫では、大港橋のシルエットが静かに水面を見つめています。日が沈むと港全体が濃い橙金色に染まり、欣殿萬飲は、この夕暮れと流れる音楽の中でひっそりと生まれました。</p>
+        <p data-i="story_p2">昼の大義街では、古い倉庫のレンガ壁を抜ける陽光の下で、素材を生かした上品でヘルシーなヨーロッパ風ブランチをお出しします。夜が訪れ、街のネオンと港の波光が交差するころ、美しい一皿と揺れるグラスが、人と人とをつなぐいちばん素直な媒介になります。</p>
+        <blockquote data-i="story_q">私たちが営むのは、ただのレストランバーではありません。時間と想いを受け継いでいく場所です。</blockquote>
+        <p class="vision" data-i="story_v">ビジョン：高雄の港湾エリアで、もっとも魂のあるスマートダイニングブランドになること。</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar rv"><h3 data-i="s1h">継承</h3><b data-i="s1t">匠の心、歳月の積み重ね</b><p data-i="s1p">食材の品質への徹底したこだわりと、サービスの細部に対する変わらない初心。</p></article>
+        <article class="pillar rv"><h3 data-i="s2h">革新</h3><b data-i="s2t">スマートに、現代的に</b><p data-i="s2p">テクノロジーは冷たいものではなく、目に見えない心づかいです。</p></article>
+        <article class="pillar rv"><h3 data-i="s3h">結びつき</h3><b data-i="s3t">魂が集う、大港の交差点</b><p data-i="s3p">遠方からの旅人、地元の人々、そして港町ならではの文化をつなぎます。</p></article>
+        <article class="pillar rv"><h3 data-i="s4h">体験</h3><b data-i="s4t">食事を超えた、暮らしの場面</b><p data-i="s4p">丁寧に設計したヨーロッパ風の料理、昼夜で移ろう空間、心に響く音楽、あたたかな交流。</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="picks">
     <h2 data-i="picks_h">よく注文されるもの</h2>
     <p class="lead" data-i="picks_p">ブランチプレートと手作りのお茶。午後の時間にぴったりです。</p>
     <div class="picks">
-      <article class="spot rv"><img src="../img/truffle.jpg" width="1000" height="1000" alt="松露晨食" loading="lazy"><div class="b"><h3 data-i="p1">トリュフモーニングプレート</h3><span class="p">NT$260</span><p class="d" data-i="p1d">トリュフが香るふわふわスクランブルエッグ。炙った季節野菜とバゲット添え。</p></div></article>
-      <article class="spot rv"><img src="../img/beef.jpg" width="1000" height="1000" alt="晨宴牛板腱拼盤" loading="lazy"><div class="b"><h3 data-i="p2">牛ハラミのブランチプレート</h3><span class="p">NT$360</span><p class="d" data-i="p2d">低温調理の牛肉、卵、パン、ハッシュドポテト、サラダ。</p></div></article>
-      <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">手作りティードリンク</h3><span class="p">NT$220 起</span><p class="d" data-i="p3d">高山茶とフルーツ、炭酸水をその場で調合。同じ一杯はありません。</p></div></article>
+      <article class="spot rv"><img src="../img/truffle.jpg" width="1000" height="1000" alt="松露晨食" loading="lazy"><div class="b"><h3 data-i="p1">トリュフモーニングプレート</h3><p class="d" data-i="p1d">トリュフが香るふわふわスクランブルエッグ。炙った季節野菜とバゲット添え。</p><span class="p">260</span></div></article>
+      <article class="spot rv"><img src="../img/beef.jpg" width="1000" height="1000" alt="晨宴牛板腱拼盤" loading="lazy"><div class="b"><h3 data-i="p2">牛ハラミのブランチプレート</h3><p class="d" data-i="p2d">低温調理の牛肉、卵、パン、ハッシュドポテト、サラダ。</p><span class="p">360</span></div></article>
+      <article class="spot rv"><img src="../img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">手作りティードリンク</h3><p class="d" data-i="p3d">高山茶とフルーツ、炭酸水をその場で調合。同じ一杯はありません。</p><span class="p" data-i="p3p">220〜</span></div></article>
     </div>
+    <p class="fine" data-i="cur">価格は台湾ドル（NT$）で、別途10%のサービス料がかかります。</p>
   </section>
 
   <section class="sec" id="menu">
     <h2 data-i="menu_h">メニューから</h2>
     <p class="lead" data-i="menu_p">午後から夜まで楽しめる数品です。価格はメニュー価格。</p>
     <div class="snap" id="dishes">
-      <article class="spot dish"><img src="../img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">スモークサーモンのフォカッチャ</h3><span class="p">NT$260</span></div></article>
-      <article class="spot dish"><img src="../img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">ピリ辛チキンピザ</h3><span class="p">NT$260</span></div></article>
-      <article class="spot dish"><img src="../img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">レモン香るエビのサラダ</h3><span class="p">NT$240</span></div></article>
-      <article class="spot dish"><img src="../img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">イカ墨のシーフードパスタ</h3><span class="p">NT$420</span></div></article>
-      <article class="spot dish"><img src="../img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">スパイシーミートソースのシェルパスタ</h3><span class="p">NT$360</span></div></article>
-      <article class="spot dish"><img src="../img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">ローストチキンのブランチプレート</h3><span class="p">NT$360</span></div></article>
+      <article class="spot dish"><img src="../img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">スモークサーモンのフォカッチャ</h3><p class="d" data-i="d1d">燻製サーモンと新鮮な野菜。重なる味わいが爽やかな、長く愛される英国風の軽食です。</p><span class="p">260</span></div></article>
+      <article class="spot dish"><img src="../img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">ピリ辛チキンピザ</h3><p class="d" data-i="d2d">台湾の漬け唐辛子のやさしい辛みが鶏もも肉と溶け合います。層のある味わいで、辛すぎません。</p><span class="p">260</span></div></article>
+      <article class="spot dish"><img src="../img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">レモン香るエビのサラダ</h3><p class="d" data-i="d3d">レモンの爽やかな香りがエビの甘みを引き立てる、食欲をそそるサラダです。</p><span class="p">240</span></div></article>
+      <article class="spot dish"><img src="../img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">イカ墨のシーフードパスタ</h3><p class="d" data-i="d4d">潮のような黒いパスタ、海の旨み。白ワインでじっくり煮込んだ魚介の濃厚な味わいです。</p><span class="p">420</span></div></article>
+      <article class="spot dish"><img src="../img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">スパイシーミートソースのシェルパスタ</h3><p class="d" data-i="d5d">濃厚な赤いソースと晩餐の雰囲気を表す一皿。大きな貝殻型パスタに辛口ミートソースを合わせました。</p><span class="p">360</span></div></article>
+      <article class="spot dish"><img src="../img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">ローストチキンのブランチプレート</h3><p class="d" data-i="d6d">香ばしく焼いた鶏もも肉にたっぷりの付け合わせ。一日に必要な満足を届けます。</p><span class="p">360</span></div></article>
     </div>
+    <p class="fine" data-i="cur">価格は台湾ドル（NT$）で、別途10%のサービス料がかかります。</p>
     <p class="fine" data-i="menu_fine">料理写真はイメージです。実際の盛り付けとは異なる場合があります。</p>
   </section>
 
@@ -335,10 +376,10 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     <h2 data-i="cat_h">4つの楽しみ方</h2>
     <p class="lead" data-i="cat_p">ブラックコーヒーから炭酸ティーカクテルまで、気分で選べます。</p>
     <div class="cat-grid" id="catGrid">
-      <div class="card c1" style="--i:0"><div><span class="n" translate="no" data-i="c1n">Coffee</span><h3 data-i="c1h">コーヒー</h3></div><p data-i="c1p">ロングブラック、ラテ、水出しコーヒー。NT$115から。</p></div>
-      <div class="card c2" style="--i:1"><div><span class="n" translate="no" data-i="c2n">Tea</span><h3 data-i="c2h">お茶</h3></div><p data-i="c2p">セイロン、ジャスミン、高山烏龍と特製ブレンド。NT$75から。</p></div>
-      <div class="card c3" style="--i:2"><div><span class="n" translate="no" data-i="c3n">Cloud &amp; Fizz</span><h3 data-i="c3h">クラウド＆フィズ</h3></div><p data-i="c3p">泡と炭酸水で仕立てたノンアルコールドリンク。NT$220から。</p></div>
-      <div class="card c4" style="--i:3"><div><span class="n" translate="no" data-i="c4n">Spirits</span><h3 data-i="c4h">ハイボールとライトカクテル</h3></div><p data-i="c4p">欣殿ハイボール、萬飲ライトカクテル。NT$320から。</p></div>
+      <div class="card c1" style="--i:0"><div><span class="n" translate="no" data-i="c1n">Coffee</span><h3 data-i="c1h">コーヒー</h3></div><p data-i="c1p">ロングブラック、ラテ、水出しコーヒー。</p></div>
+      <div class="card c2" style="--i:1"><div><span class="n" translate="no" data-i="c2n">Tea</span><h3 data-i="c2h">お茶</h3></div><p data-i="c2p">セイロン、ジャスミン、高山烏龍と特製ブレンド。</p></div>
+      <div class="card c3" style="--i:2"><div><span class="n" translate="no" data-i="c3n">Cloud &amp; Fizz</span><h3 data-i="c3h">クラウド＆フィズ</h3></div><p data-i="c3p">泡と炭酸水で仕立てたノンアルコールドリンク。</p></div>
+      <div class="card c4" style="--i:3"><div><span class="n" translate="no" data-i="c4n">Spirits</span><h3 data-i="c4h">ハイボールとライトカクテル</h3></div><p data-i="c4p">欣殿ハイボール、萬飲ライトカクテル。</p></div>
     </div>
   </section>
 </div>
@@ -353,15 +394,15 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <div>
         <h3 data-i="m1h">欣殿ハイボール</h3>
         <p class="note" data-i="m1n">お茶とフルーツのハイボール。ベースのお酒を選べます。</p>
-        <ul id="m1"><li><b>ブルーハーバー ラム</b><span class="pr">NT$360</span><small>陳皮、梅、グレープフルーツ、ライチ</small></li><li><b>オーチャード ブランデー</b><span class="pr">NT$380</span><small>四季春茶、りんご、レモンジンジャー</small></li><li><b>ハーブ ウォッカ</b><span class="pr">NT$360</span><small>タンポポ、バジル、ミント、甘草、きゅうり</small></li><li><b>ワイルド テキーラ</b><span class="pr">NT$400</span><small>桑の実、パチュリ、ローズマリー、胡椒</small></li><li><b>ピーチブロッサム ジン</b><span class="pr">NT$340</span><small>桜、カカオティー、紅烏龍、クランベリー</small></li></ul>
+        <ul id="m1"><li><b>ブルーハーバー ラム</b><small>陳皮、梅、グレープフルーツ、ライチ</small></li><li><b>オーチャード ブランデー</b><small>四季春茶、りんご、レモンジンジャー</small></li><li><b>ハーブ ウォッカ</b><small>タンポポ、バジル、ミント、甘草、きゅうり</small></li><li><b>ワイルド テキーラ</b><small>桑の実、パチュリ、ローズマリー、胡椒</small></li><li><b>ピーチブロッサム ジン</b><small>桜、カカオティー、紅烏龍、クランベリー</small></li></ul>
       </div>
       <div>
         <h3 data-i="m2h">萬飲ライトカクテル</h3>
         <p class="note" data-i="m2n">低アルコールでお茶の香り中心。ゆっくり楽しめます。</p>
-        <ul id="m2"><li><b>ライチ青茶</b><span class="pr">NT$320</span><small>高山青茶、ライチ、シナモン、バラ</small></li><li><b>東方美人コーヒーベリー</b><span class="pr">NT$340</span><small>東方美人茶、コーヒー、マカダミア、いちご紅茶</small></li><li><b>ジャスミンの囁き</b><span class="pr">NT$320</span><small>ジャスミン茶、グアバ、野生ジンジャーフラワー</small></li><li><b>金萱キンモクセイ</b><span class="pr">NT$320</span><small>金萱茶、クランベリー、トニック、キンモクセイ</small></li><li><b>紅玉スイカ</b><span class="pr">NT$360</span><small>紅玉紅茶、スイカ、チョコレートミルク</small></li></ul>
+        <ul id="m2"><li><b>ライチ青茶</b><small>高山青茶、ライチ、シナモン、バラ</small></li><li><b>東方美人コーヒーベリー</b><small>東方美人茶、コーヒー、マカダミア、いちご紅茶</small></li><li><b>ジャスミンの囁き</b><small>ジャスミン茶、グアバ、野生ジンジャーフラワー</small></li><li><b>金萱キンモクセイ</b><small>金萱茶、クランベリー、トニック、キンモクセイ</small></li><li><b>紅玉スイカ</b><small>紅玉紅茶、スイカ、チョコレートミルク</small></li></ul>
       </div>
     </div>
-    <p class="fine" data-i="fine">メニュー価格です。別途10%のサービス料がかかります。提供状況は店頭でご確認ください。</p>
+    <p class="fine" data-i="fine">提供状況は店頭でご確認ください。</p>
   </section>
 </div>
 

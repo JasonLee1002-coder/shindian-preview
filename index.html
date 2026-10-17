@@ -111,6 +111,26 @@ section.sec{padding-block:clamp(56px,9vw,112px)}
 .spot h3{font-size:22px}
 .spot .p{font-family:var(--f-display);color:var(--amber);font-weight:600;font-variant-numeric:tabular-nums}
 .spot .d{color:var(--muted);font-size:15px}
+/* 富哥 2026-10-17 11:39：名稱靠右、介紹置中、價格最底靠左小字且不寫 NT$ */
+.spot .b{flex:1;display:flex;flex-direction:column;gap:10px}
+.spot h3{text-align:right}
+.spot .d{text-align:center}
+.spot .p{margin-top:auto;padding-top:6px;text-align:left;font-size:13px;font-weight:500;letter-spacing:.02em}
+.fine+.fine{margin-top:6px}
+/* 品牌故事（取自富哥提供的《品牌故事》PDF，2026-10-17） */
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.story .tx p{color:var(--muted);margin:0 0 16px;max-width:60ch}
+.story blockquote{margin:22px 0 0;font-family:var(--f-display);font-size:clamp(20px,2.4vw,28px);line-height:1.5;color:var(--fg);border-left:2px solid var(--amber);padding-left:16px}
+.story .tx .vision{margin-top:22px;font-size:15px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pillar{background:rgba(14,30,54,.82);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:0 18px 50px rgba(0,0,0,.3)}
+.pillar h3{font-size:20px;margin-bottom:2px}
+.pillar b{display:block;color:var(--amber);font-weight:600;font-size:14px;margin-bottom:8px}
+.pillar p{color:var(--muted);font-size:14px;margin:0}
+.dish .d{font-size:14px}
+.menus li{grid-template-columns:1fr}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+@media (max-width:480px){.pillars{grid-template-columns:1fr}}
 @media (max-width:860px){.picks{grid-template-columns:1fr}}
 
 /* 飲品分類：彈跳卡 */
@@ -256,6 +276,7 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
   <div class="in">
     <a class="brand" translate="no" href="#top">欣殿萬飲<small>SHIN DIAN WAN YIN</small></a>
     <nav aria-label="main">
+      <a href="#story" data-i="nav_story">品牌故事</a>
       <a href="#picks" data-i="nav_picks">招牌</a>
       <a href="#drinks" data-i="nav_drinks">飲品</a>
       <a href="#night" data-i="nav_night">夜間酒單</a>
@@ -304,27 +325,47 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     <p class="fine" data-i="vid_note">旁白可選中文、日文、韓文，字幕同步切換。</p>
   </section>
 
+  <section class="sec" id="story">
+    <h2 data-i="story_h">當港灣的黃昏，寫成一首不散的詩</h2>
+    <div class="story">
+      <div class="tx rv">
+        <p data-i="story_p1">高雄，是一座被大氣魄的潮汐與無數靈魂吻過的城市。在駁二大義特區的 C6-7 倉庫，大港橋的側影靜靜凝視著水面。日落時分，整座大港會被渲染成濃郁的橘金色，而「欣殿萬飲」，就在這片暮色與流動的音樂中悄然誕生。</p>
+        <p data-i="story_p2">白晝的大義街，陽光穿透老倉庫的磚牆，我們奉上純粹、精緻且擁抱健康的歐式早午餐。當夜幕低垂，城市的霓虹與港灣的波光開始交錯，精緻的餐盤、搖曳的酒杯，成了人與人之間最真誠的媒介。</p>
+        <blockquote data-i="story_q">我們不止經營一家餐酒館，我們在做的是一場關於時間與情感的傳承。</blockquote>
+        <p class="vision" data-i="story_v">品牌願景：成為高雄港灣生活圈最具靈魂代表性的智慧餐飲領航品牌。</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar rv"><h3 data-i="s1h">傳承</h3><b data-i="s1t">匠心之本，歲月沉澱</b><p data-i="s1p">對食材品質有著近乎偏執的堅持，對服務細節抱持著不變的初心。</p></article>
+        <article class="pillar rv"><h3 data-i="s2h">創新</h3><b data-i="s2t">智慧賦能，現代極致</b><p data-i="s2p">科技在這裡不是冰冷的代名詞，而是隱形的體貼。</p></article>
+        <article class="pillar rv"><h3 data-i="s3h">連結</h3><b data-i="s3t">靈魂聚落，大港交會</b><p data-i="s3p">連結遠方的旅人、在地的居民與這座城市獨特的港灣文化。</p></article>
+        <article class="pillar rv"><h3 data-i="s4h">體驗</h3><b data-i="s4t">超越用餐，生活場景</b><p data-i="s4p">精心設計的歐式餐點、隨晝夜流轉的空間氛圍、扣人心弦的音樂與溫暖的互動。</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="picks">
     <h2 data-i="picks_h">店裡最多人點的</h2>
     <p class="lead" data-i="picks_p">早午餐盤和手調茶飲，白天來最剛好。</p>
     <div class="picks">
-      <article class="spot rv"><img src="img/truffle.jpg" width="1000" height="1000" alt="松露晨食" loading="lazy"><div class="b"><h3 data-i="p1">松露晨食</h3><span class="p">NT$260</span><p class="d" data-i="p1d">松露香氣包覆滑嫩炒蛋，搭配炙烤時令蔬菜與法棍。</p></div></article>
-      <article class="spot rv"><img src="img/beef.jpg" width="1000" height="1000" alt="晨宴牛板腱拼盤" loading="lazy"><div class="b"><h3 data-i="p2">晨宴牛板腱拼盤</h3><span class="p">NT$360</span><p class="d" data-i="p2d">舒肥牛板腱、嫩蛋、麵包、薯餅與時蔬沙拉。</p></div></article>
-      <article class="spot rv"><img src="img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">手調茶飲</h3><span class="p">NT$220 起</span><p class="d" data-i="p3d">高山茶、水果與氣泡水手工調配，每杯都不一樣。</p></div></article>
+      <article class="spot rv"><img src="img/truffle.jpg" width="1000" height="1000" alt="松露晨食" loading="lazy"><div class="b"><h3 data-i="p1">松露晨食</h3><p class="d" data-i="p1d">松露香氣包覆滑嫩炒蛋，搭配炙烤時令蔬菜與法棍。</p><span class="p">260</span></div></article>
+      <article class="spot rv"><img src="img/beef.jpg" width="1000" height="1000" alt="晨宴牛板腱拼盤" loading="lazy"><div class="b"><h3 data-i="p2">晨宴牛板腱拼盤</h3><p class="d" data-i="p2d">舒肥牛板腱、嫩蛋、麵包、薯餅與時蔬沙拉。</p><span class="p">360</span></div></article>
+      <article class="spot rv"><img src="img/tea.jpg" width="1000" height="1000" alt="手調茶飲" loading="lazy"><div class="b"><h3 data-i="p3">手調茶飲</h3><p class="d" data-i="p3d">高山茶、水果與氣泡水手工調配，每杯都不一樣。</p><span class="p" data-i="p3p">220 起</span></div></article>
     </div>
+    <p class="fine" data-i="cur">價格單位為新台幣，未含 10% 服務費。</p>
   </section>
 
   <section class="sec" id="menu">
     <h2 data-i="menu_h">菜單精選</h2>
     <p class="lead" data-i="menu_p">午後到晚上都吃得到的幾道，價格為菜單定價。</p>
     <div class="snap" id="dishes">
-      <article class="spot dish"><img src="img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">煙燻鮭魚佛卡夏</h3><span class="p">NT$260</span></div></article>
-      <article class="spot dish"><img src="img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">暖辛雞腿披薩</h3><span class="p">NT$260</span></div></article>
-      <article class="spot dish"><img src="img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">晨光檸香鮮蝦沙拉</h3><span class="p">NT$240</span></div></article>
-      <article class="spot dish"><img src="img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">墨潮海鮮義麵</h3><span class="p">NT$420</span></div></article>
-      <article class="spot dish"><img src="img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">赤宴辣肉醬鑲貝</h3><span class="p">NT$360</span></div></article>
-      <article class="spot dish"><img src="img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">晨宴香煎雞腿拼盤</h3><span class="p">NT$360</span></div></article>
+      <article class="spot dish"><img src="img/dish_salmon.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d1">煙燻鮭魚佛卡夏</h3><p class="d" data-i="d1d">煙燻鮭魚搭配新鮮蔬菜，層次豐富爽口歷久不衰的英式輕食。</p><span class="p">260</span></div></article>
+      <article class="spot dish"><img src="img/dish_pizza.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d2">暖辛雞腿披薩</h3><p class="d" data-i="d2d">剝皮辣椒的溫潤辛香與雞腿肉完美融合，層次豐富而不嗆辣。</p><span class="p">260</span></div></article>
+      <article class="spot dish"><img src="img/dish_shrimpsalad.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d3">晨光檸香鮮蝦沙拉</h3><p class="d" data-i="d3d">清新檸香襯托鮮蝦甘甜，帶來爽口開胃的滋味。</p><span class="p">240</span></div></article>
+      <article class="spot dish"><img src="img/dish_inkpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d4">墨潮海鮮義麵</h3><p class="d" data-i="d4d">黑色麵體如潮汐，鮮味來自大海。白酒慢煨海鮮風味，鮮香濃郁。</p><span class="p">420</span></div></article>
+      <article class="spot dish"><img src="img/dish_shellpasta.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d5">赤宴辣肉醬鑲貝</h3><p class="d" data-i="d5d">赤宴象徵濃烈紅醬與晚宴氛圍。嵌大貝殼麵體，精緻饗宴。</p><span class="p">360</span></div></article>
+      <article class="spot dish"><img src="img/dish_chickenplate.jpg" width="900" height="900" alt="" loading="lazy"><div class="b"><h3 data-i="d6">晨宴香煎雞腿拼盤</h3><p class="d" data-i="d6d">金黃香煎雞腿搭配豐富配菜，滿足一日所需的美好滋味。</p><span class="p">360</span></div></article>
     </div>
+    <p class="fine" data-i="cur">價格單位為新台幣，未含 10% 服務費。</p>
     <p class="fine" data-i="menu_fine">餐點圖為示意，實際擺盤以現場為準。</p>
   </section>
 
@@ -335,10 +376,10 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
     <h2 data-i="cat_h">四種喝法</h2>
     <p class="lead" data-i="cat_p">從一杯黑咖啡到氣泡茶酒，照當下心情挑。</p>
     <div class="cat-grid" id="catGrid">
-      <div class="card c1" style="--i:0"><div><span class="n" translate="no" data-i="c1n">Coffee</span><h3 data-i="c1h">咖啡</h3></div><p data-i="c1p">長黑、拿鐵、慢萃冷釀。NT$115 起。</p></div>
-      <div class="card c2" style="--i:1"><div><span class="n" translate="no" data-i="c2n">Tea</span><h3 data-i="c2h">茶飲</h3></div><p data-i="c2p">錫蘭、茉香、高山青茶與風味特調。NT$75 起。</p></div>
-      <div class="card c3" style="--i:2"><div><span class="n" translate="no" data-i="c3n">Cloud &amp; Fizz</span><h3 data-i="c3h">雲與沫、氣與地</h3></div><p data-i="c3p">泡沫與氣泡水做的無酒精特調。NT$220 起。</p></div>
-      <div class="card c4" style="--i:3"><div><span class="n" translate="no" data-i="c4n">Spirits</span><h3 data-i="c4h">高球與輕酒</h3></div><p data-i="c4p">欣殿高球、萬飲輕酒。NT$320 起。</p></div>
+      <div class="card c1" style="--i:0"><div><span class="n" translate="no" data-i="c1n">Coffee</span><h3 data-i="c1h">咖啡</h3></div><p data-i="c1p">長黑、拿鐵、慢萃冷釀。</p></div>
+      <div class="card c2" style="--i:1"><div><span class="n" translate="no" data-i="c2n">Tea</span><h3 data-i="c2h">茶飲</h3></div><p data-i="c2p">錫蘭、茉香、高山青茶與風味特調。</p></div>
+      <div class="card c3" style="--i:2"><div><span class="n" translate="no" data-i="c3n">Cloud &amp; Fizz</span><h3 data-i="c3h">雲與沫、氣與地</h3></div><p data-i="c3p">泡沫與氣泡水做的無酒精特調。</p></div>
+      <div class="card c4" style="--i:3"><div><span class="n" translate="no" data-i="c4n">Spirits</span><h3 data-i="c4h">高球與輕酒</h3></div><p data-i="c4p">欣殿高球、萬飲輕酒。</p></div>
     </div>
   </section>
 </div>
@@ -353,15 +394,15 @@ footer .in{max-width:1200px;margin:0 auto;display:flex;gap:12px 28px;flex-wrap:w
       <div>
         <h3 data-i="m1h">欣殿高球</h3>
         <p class="note" data-i="m1n">以茶與水果調出的高球，選一種基酒。</p>
-        <ul id="m1"><li><b>藍港蘭姆</b><span class="pr">NT$360</span><small>陳皮、冰梅、葡萄柚、澄清荔枝</small></li><li><b>果林白蘭地</b><span class="pr">NT$380</span><small>四季春、蘋果、檸檬薑汁</small></li><li><b>草本伏特加</b><span class="pr">NT$360</span><small>蒲公英、羅勒、薄荷、甘草、小黃瓜</small></li><li><b>狂野龍舌蘭</b><span class="pr">NT$400</span><small>桑葚、廣藿香、迷迭香、胡椒</small></li><li><b>清桃琴酒</b><span class="pr">NT$340</span><small>櫻花、可可茶、紅烏龍、蔓越莓</small></li></ul>
+        <ul id="m1"><li><b>藍港蘭姆</b><small>陳皮、冰梅、葡萄柚、澄清荔枝</small></li><li><b>果林白蘭地</b><small>四季春、蘋果、檸檬薑汁</small></li><li><b>草本伏特加</b><small>蒲公英、羅勒、薄荷、甘草、小黃瓜</small></li><li><b>狂野龍舌蘭</b><small>桑葚、廣藿香、迷迭香、胡椒</small></li><li><b>清桃琴酒</b><small>櫻花、可可茶、紅烏龍、蔓越莓</small></li></ul>
       </div>
       <div>
         <h3 data-i="m2h">萬飲輕酒</h3>
         <p class="note" data-i="m2n">低酒精，茶香為主，適合慢慢喝。</p>
-        <ul id="m2"><li><b>荔香青韻微醺</b><span class="pr">NT$320</span><small>高山青茶、荔枝、肉桂、玫瑰</small></li><li><b>東方啡莓微醺</b><span class="pr">NT$340</span><small>東方美人、咖啡、夏威夷豆、草莓紅茶</small></li><li><b>茉莉花語微醺</b><span class="pr">NT$320</span><small>茉莉香片、芭樂、野薑花</small></li><li><b>金萱桂香微醺</b><span class="pr">NT$320</span><small>金萱茶、蔓越莓、通寧、桂花</small></li><li><b>紅玉巧瓜微醺</b><span class="pr">NT$360</span><small>十八號紅玉、小玉西瓜、巧克力牛奶</small></li></ul>
+        <ul id="m2"><li><b>荔香青韻微醺</b><small>高山青茶、荔枝、肉桂、玫瑰</small></li><li><b>東方啡莓微醺</b><small>東方美人、咖啡、夏威夷豆、草莓紅茶</small></li><li><b>茉莉花語微醺</b><small>茉莉香片、芭樂、野薑花</small></li><li><b>金萱桂香微醺</b><small>金萱茶、蔓越莓、通寧、桂花</small></li><li><b>紅玉巧瓜微醺</b><small>十八號紅玉、小玉西瓜、巧克力牛奶</small></li></ul>
       </div>
     </div>
-    <p class="fine" data-i="fine">以上為菜單定價，未含 10% 服務費。實際供應以現場為準。</p>
+    <p class="fine" data-i="fine">實際供應以現場為準。</p>
   </section>
 </div>
 
